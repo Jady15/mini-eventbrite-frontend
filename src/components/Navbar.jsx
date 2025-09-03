@@ -13,6 +13,11 @@ export default function Navbar(){
         </Link>
 
         <nav className="flex items-center gap-3">
+          <Link to='/events' className='btn'>Eventos</Link>
+
+          {isAuthenticated() && hasRole('organizer', 'admin') && (
+            <Link to="/events/new" className="btn btn-primary">Crear evento</Link>
+          )}
 
           {isAuthenticated() ? (
             <>
