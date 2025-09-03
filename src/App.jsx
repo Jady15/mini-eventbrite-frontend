@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import NotFound from './pages/NotFound'
 import useAuth from './hooks/useAuth'
 import useLastVisited from './hooks/useLastVisited'
 
@@ -28,6 +29,7 @@ export default function App() {
               <Routes>
                 <Route path='/' element={<Login/>} />
                 <Route path='/register' element={<Register/>} />
+                <Route path='*' element={<NotFound/>}></Route>
               </Routes>
       </main>
     </div>
