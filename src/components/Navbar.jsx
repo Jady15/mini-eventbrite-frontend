@@ -1,7 +1,7 @@
 import { useNavigate, Link } from "react-router-dom"
 import useAuth from "../hooks/useAuth"
 
-export default function Navabar(){
+export default function Navbar(){
     const { isAuthenticated, user, logout } = useAuth()
     const navigate = useNavigate()
     const hasRole = (...roles) => roles.includes(user?.role)
