@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
-import Button from "../components/Button";
-import Card from "../components/Card";
-import useAuth from '../hooks/useAuth';
+import { useState } from "react"
+import { useLocation, useNavigate, Link } from "react-router-dom"
+import Button from "../components/Button"
+import Card from "../components/Card"
+import useAuth from "../hooks/useAuth"
 
 export default function Login() {
     const [email, setEmail] = useState('');
