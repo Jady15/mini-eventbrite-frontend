@@ -29,7 +29,7 @@ export default function EventDetail() {
                 // Solo pedir ocupados si es un grid
                 if (ev?.seatMap?.type === 'grid') {
                     const occRes = await getOccupiedSeats(id);
-                    setOccupied(occRes?.occupied || []);
+                    setOccupied(occRes?.occupiedSeats || []);
                 } else {
                     setOccupied([]); //GA: No aplica
                 }
