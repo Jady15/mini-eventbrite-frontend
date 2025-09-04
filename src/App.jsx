@@ -6,6 +6,7 @@ import Register from './pages/Register'
 import Events from './pages/Events'
 import CreateEvent from './pages/CreateEvent'
 import EventDetail from './pages/EventDetail'
+import Scan from './pages/Scan';
 import NotFound from './pages/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
 import useAuth from './hooks/useAuth'
@@ -32,21 +33,29 @@ export default function App() {
     <div className='min-h-screen'>
       <Navbar />
       <main className="container-app py-8">
-              <Routes>
-                <Route path='/' element={<Login/>} />
-                <Route path='/register' element={<Register/>} />
-                <Route path='/events' element={<Events/>} />
-                <Route path="/events/:id" element={<EventDetail />} />
-                <Route
-                 path='/events/new' 
-                 element={ 
-                  <ProtectedRoute>
-                    { hasRole('organizer','admin') ? <CreateEvent /> : <NotFound />}
-                  </ProtectedRoute>
-                }
-                />
-                <Route path='*' element={<NotFound/>} />
-              </Routes>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/events' element={<Events />} />
+          <Route path="/events/:id" element={<EventDetail />} />
+          <Route
+            path='/events/new'
+            element={
+              <ProtectedRoute>
+                {hasRole('organizer', 'admin') ? <CreateEvent /> : <NotFound />}
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/scan'
+            element={
+              <ProtectedRoute>
+                {hasRole('organizer', 'admin', 'staff') ? <Scan /> : <NotFound />}
+              </ProtectedRoute>
+            }
+          />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </main>
     </div>
   )
