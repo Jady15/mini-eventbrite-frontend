@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Events from './pages/Events'
 import CreateEvent from './pages/CreateEvent'
+import EventDetail from './pages/EventDetail'
 import NotFound from './pages/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
 import useAuth from './hooks/useAuth'
@@ -35,6 +36,7 @@ export default function App() {
                 <Route path='/' element={<Login/>} />
                 <Route path='/register' element={<Register/>} />
                 <Route path='/events' element={<Events/>} />
+                <Route path="/events/:id" element={<EventDetail />} />
                 <Route
                  path='/events/new' 
                  element={ 
